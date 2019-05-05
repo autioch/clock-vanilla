@@ -8,8 +8,11 @@
   content: ':';
 }
 
+.digital > .options {
+  font-family: Helvetica;
+}
+
 .digital > .options > label {
   display: flex;
   align-items: center;
-  font-family: Helvetica;
 }
