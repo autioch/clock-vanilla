@@ -10,17 +10,17 @@ html {
   font-size: 1.4em;
 }
 
-.digital > .display {
+.digital-display {
   display: flex;
   font-family: "Courier New", Courier, monospace;
   font-size: 2em;
 }
 
-.digital > .display > div:not(:first-child)::before {
+.digital-display > div:not(:first-child)::before {
   content: ':';
 }
 
-.digital > .options > label {
+.digital-options > label {
   display: flex;
   align-items: center;
 }

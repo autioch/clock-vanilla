@@ -22,15 +22,15 @@ function app() {
     },
     digital: {
       container: document.querySelector('.digital'),
-      hour: document.querySelector('.digital > .display > .hour'),
-      minute: document.querySelector('.digital > .display > .minute'),
-      second: document.querySelector('.digital > .display > .second'),
-      millisecond: document.querySelector('.digital > .display > .millisecond'),
-      showMinute: document.querySelector('.digital > .options .minute'),
-      showSecond: document.querySelector('.digital > .options .second'),
-      showMillisecond: document.querySelector('.digital > .options .millisecond'),
-      formatAmPm: document.querySelector('.digital > .options .format-am-pm'),
-      formatFull: document.querySelector('.digital > .options .format-full'),
+      hour: document.querySelector('.digital-display__hour'),
+      minute: document.querySelector('.digital-display__minute'),
+      second: document.querySelector('.digital-display__second'),
+      millisecond: document.querySelector('.digital-display__millisecond'),
+      showMinute: document.querySelector('.digital-options__minute'),
+      showSecond: document.querySelector('.digital-options__second'),
+      showMillisecond: document.querySelector('.digital-options__millisecond'),
+      formatAmPm: document.querySelector('.digital-format__am-pm'),
+      formatFull: document.querySelector('.digital-format__full'),
     }
   };
 
