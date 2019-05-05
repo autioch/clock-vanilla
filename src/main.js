@@ -1,3 +1,12 @@
+/* utilities */
+function formatTime(value) {
+  return value < 10 ? `0${value}` : value.toString();
+}
+
+function toggleVisibility(elToToggle, checkboxEl){
+  elToToggle.style.display = checkboxEl.checked ? '' : 'none';
+}
+
 /* Complete app, kept inside "main" function. */
 function app() {
 
@@ -7,6 +16,15 @@ function app() {
     minute: document.querySelector('.digital > .display > .minute'),
     second: document.querySelector('.digital > .display > .second'),
     millisecond: document.querySelector('.digital > .display > .millisecond'),
+    showMinute: document.querySelector('.digital > .options .minute'),
+    showSecond: document.querySelector('.digital > .options .second'),
+    showMillisecond: document.querySelector('.digital > .options .millisecond'),
+  }
+
+  function bindEvents(){
+    digitalUi.showMinute.addEventListener('change', () => toggleVisibility(digitalUi.minute, digitalUi.showMinute))
+    digitalUi.showSecond.addEventListener('change', () => toggleVisibility(digitalUi.second, digitalUi.showSecond))
+    digitalUi.showMillisecond.addEventListener('change',() => toggleVisibility(digitalUi.millisecond, digitalUi.showMillisecond))
   }
 
   /* Get current state */
@@ -21,10 +39,6 @@ function app() {
     };
   }
 
-  /* View utility */
-  function formatTime(value) {
-    return value < 10 ? `0${value}` : value.toString();
-  }
 
   /* Show state in the app. */
   function displayTime(currentTime) {
@@ -45,6 +59,10 @@ function app() {
   }
 
   /* Initial run. */
+  toggleVisibility(digitalUi.minute, digitalUi.showMinute);
+  toggleVisibility(digitalUi.second, digitalUi.showSecond);
+  toggleVisibility(digitalUi.millisecond, digitalUi.showMillisecond);
+  bindEvents();
   run();
 }
 
