@@ -18,7 +18,8 @@ function app() {
   /* View representation. */
   const ui = {
     mode: {
-      digital: document.querySelector('.mode .mode__digital')
+      digital: document.querySelector('.mode__digital'),
+      clockface: document.querySelector('.mode__clockface'),
     },
     digital: {
       container: document.querySelector('.digital'),
@@ -31,15 +32,21 @@ function app() {
       showMillisecond: document.querySelector('.digital-options__millisecond'),
       formatAmPm: document.querySelector('.digital-format__am-pm'),
       formatFull: document.querySelector('.digital-format__full'),
+    },
+    clockface: {
+      container: document.querySelector('.clockface')
     }
   };
 
   const state = {
     isAmPm: false,
-    isDigital: false
+    isDigital: false,
+    isClockFace: false
   };
 
   function bindEvents() {
+    ui.mode.digital.addEventListener('change', setMode);
+    ui.mode.clockface.addEventListener('change', setMode);
     ui.digital.showMinute.addEventListener('change', () => toggleVisibility(ui.digital.minute, ui.digital.showMinute));
     ui.digital.showSecond.addEventListener('change', () => toggleVisibility(ui.digital.second, ui.digital.showSecond));
     ui.digital.showMillisecond.addEventListener('change', () => toggleVisibility(ui.digital.millisecond, ui.digital.showMillisecond));
@@ -65,8 +72,10 @@ function app() {
 
   function setMode() {
     state.isDigital = ui.mode.digital.checked;
+    state.isClockFace = ui.mode.clockface.checked;
 
     toggleVisibility(ui.digital.container, ui.mode.digital);
+    toggleVisibility(ui.clockface.container, ui.mode.clockface);
   }
 
   /* Show state in the app. */
