@@ -1,0 +1,9 @@
+.digital {
+  display: flex;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2em;
+}
+
+.digital > div:not(:first-child)::before {
+  content: ':';
+}
