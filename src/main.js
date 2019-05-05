@@ -3,10 +3,10 @@ function app() {
 
   /* View representation. */
   const digitalUi = {
-    hour: document.querySelector('.digital > .hour'),
-    minute: document.querySelector('.digital > .minute'),
-    second: document.querySelector('.digital > .second'),
-    milisecond: document.querySelector('.digital > .milisecond'),
+    hour: document.querySelector('.digital > .display > .hour'),
+    minute: document.querySelector('.digital > .display > .minute'),
+    second: document.querySelector('.digital > .display > .second'),
+    millisecond: document.querySelector('.digital > .display > .millisecond'),
   }
 
   /* Get current state */
@@ -17,7 +17,7 @@ function app() {
       hour: now.getHours(),
       minute: now.getMinutes(),
       second: now.getSeconds(),
-      milisecond: now.getMilliseconds()
+      millisecond: now.getMilliseconds()
     };
   }
 
@@ -31,7 +31,7 @@ function app() {
     digitalUi.hour.textContent = formatTime(currentTime.hour);
     digitalUi.minute.textContent = formatTime(currentTime.minute);
     digitalUi.second.textContent = formatTime(currentTime.second);
-    digitalUi.milisecond.textContent = formatTime(currentTime.milisecond);
+    digitalUi.millisecond.textContent = formatTime(currentTime.millisecond);
   }
 
   /* Actual app function. */
