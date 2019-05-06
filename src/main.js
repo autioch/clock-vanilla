@@ -73,11 +73,20 @@ function digitalMode() {
 function clockfaceMode(){
 
   const ui = {
-    container: document.querySelector('.clockface')
+    container: document.querySelector('.clockface'),
+    hour: document.querySelector('.clockface-display__hour'),
+    minute: document.querySelector('.clockface-display__minute'),
+    second: document.querySelector('.clockface-display__second'),
   };
 
-  function render() {
+  function render(currentTime) {
+    const hourAngle = (currentTime.hour / 2 / 24) * 360;
+    const minuteAngle = (currentTime.minute / 60) * 360;
+    const secondAngle = (currentTime.second / 60) * 360;
 
+    ui.hour.style.transform = `rotate(${hourAngle}deg)`;
+    ui.minute.style.transform = `rotate(${minuteAngle}deg)`;
+    ui.second.style.transform = `rotate(${secondAngle}deg)`;
   }
 
   function toggle(isVisible){

@@ -9,11 +9,11 @@
   <div class="mode">
     <div class="mode__header">Display mode</div>
     <label>
-      <input type="radio" name="mode" class="mode__digital" checked>
+      <input type="radio" name="mode" class="mode__digital">
       <span>Digital</span>
     </label>
     <label>
-      <input type="radio" name="mode" class="mode__clockface">
+      <input type="radio" name="mode" class="mode__clockface" checked>
       <span>Clock face</span>
     </label>
   </div>
@@ -50,7 +50,11 @@
     </div>
   </div>
   <div class="clockface">
-    TODO
+    <div class="clockface-display">
+      <div class="clockface-display__hour"></div>
+      <div class="clockface-display__minute"></div>
+      <div class="clockface-display__second"></div>
+    </div>
   </div>
   <script src="main.js" charset="utf-8"></script>
 </body>

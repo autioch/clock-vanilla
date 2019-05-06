@@ -24,3 +24,35 @@ html {
   display: flex;
   align-items: center;
 }
+
+.clockface-display {
+  position: relative;
+  width: 10em;
+  height: 10em;
+  background-color: #def;
+}
+
+.clockface-display::before {
+  width: .5em;
+  height: .5em;
+  border-radius: .25em;
+  background: #000;
+  content: '';
+  position: absolute;
+  top: 4.75em;
+  left: 4.75em;
+}
+
+.clockface-display__hour,
+.clockface-display__minute,
+.clockface-display__second {
+  position: absolute;
+  left: 4.75em;
+  top: 1em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 .25em 4em .25em;
+  border-color: transparent transparent #212121 transparent;
+  transform-origin: 50% 100%;
+}
