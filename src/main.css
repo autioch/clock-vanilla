@@ -129,3 +129,9 @@ html {
   width: 2px;
   height: .4em;
 }
+
+
+.clockface-options > label {
+  display: flex;
+  align-items: center;
+}
