@@ -2,6 +2,8 @@ html {
   font-family: Helvetica;
 }
 
+/* Main app */
+
 .mode {
   margin-bottom: 1em;
 }
@@ -9,6 +11,8 @@ html {
 .mode__header {
   font-size: 1.4em;
 }
+
+/* Digital clock. */
 
 .digital-display {
   display: flex;
@@ -24,6 +28,8 @@ html {
   display: flex;
   align-items: center;
 }
+
+/* Classic clock. */
 
 .clockface-display {
   position: relative;
@@ -43,16 +49,75 @@ html {
   left: 4.75em;
 }
 
-.clockface-display__hour,
-.clockface-display__minute,
-.clockface-display__second {
+.clockface__hand--hour,
+.clockface__hand--minute,
+.clockface__hand--second {
   position: absolute;
-  left: 4.75em;
-  top: 1em;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 .25em 4em .25em;
-  border-color: transparent transparent #212121 transparent;
   transform-origin: 50% 100%;
+  background-color: #000;
+}
+
+.clockface__hand--hour {
+  left: 4.85em;
+  width: .3em;
+  height: 2.5em;
+  top: 2.5em;
+  border-radius: .15em;
+}
+
+.clockface__hand--minute {
+  left: 4.9em;
+  width: .2em;
+  height: 3em;
+  top: 2em;
+  border-radius: .1em;
+}
+
+.clockface__hand--second {
+  left: 4.95em;
+  width: .1em;
+  height: 3.5em;
+  top: 1.5em;
+  border-radius: .05em;
+}
+
+.clockface-graduation-hour {
+  counter-reset: graduation-hour;
+  position: absolute;
+  width: 10em;
+  height: 10em;
+}
+
+.clockface-graduation-second {
+  position: absolute;
+  width: 10em;
+  height: 10em;
+}
+
+.clockface-graduation-hour-item {
+   counter-increment: graduation-hour;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 2em;
+   text-align: center;
+}
+
+.clockface-graduation-hour-item::before {
+  content: counter(graduation-hour);
+}
+
+.clockface-graduation-second-item {
+  height: .2em;
+  width: 1px;
+  background: #333;
+  position: absolute;
+  top: 0;
+  left: 5em;
+  transform-origin: 0 5em;
+}
+
+.clockface-graduation-second-item:nth-child(5n + 1) {
+  width: 2px;
+  height: .4em;
 }

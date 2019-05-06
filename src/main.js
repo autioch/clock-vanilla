@@ -70,17 +70,39 @@ function digitalMode() {
   };
 }
 
-function clockfaceMode(){
+function clockfaceMode() {
 
   const ui = {
     container: document.querySelector('.clockface'),
-    hour: document.querySelector('.clockface-display__hour'),
-    minute: document.querySelector('.clockface-display__minute'),
-    second: document.querySelector('.clockface-display__second'),
+    hour: document.querySelector('.clockface__hand--hour'),
+    minute: document.querySelector('.clockface__hand--minute'),
+    second: document.querySelector('.clockface__hand--second'),
+    graduationHour: document.querySelector('.clockface-graduation-hour'),
+    graduationSecond: document.querySelector('.clockface-graduation-second')
   };
 
+  function setupGraduations() {
+
+    for (let i = 0; i < 60; i++){
+      const el = document.createElement('div');
+
+      el.className = 'clockface-graduation-second-item';
+      el.style.transform = `rotate(${6 * i}deg)`;
+      ui.graduationSecond.appendChild(el);
+    }
+
+    for (let i = 0; i < 12; i++){
+      const el = document.createElement('div');
+
+      el.className = 'clockface-graduation-hour-item';
+      el.style.transform = `translate(-1em, -.5em) rotate(${30 * i + 300}deg) translate(4em) rotate(-${30 * i + 300}deg)`;
+      ui.graduationHour.appendChild(el);
+    }
+  }
+
+
   function render(currentTime) {
-    const hourAngle = (currentTime.hour / 2 / 24) * 360;
+    const hourAngle = (currentTime.hour / 12) * 360 +  (currentTime.minute / 60) * 30;
     const minuteAngle = (currentTime.minute / 60) * 360;
     const secondAngle = (currentTime.second / 60) * 360;
 
@@ -92,6 +114,8 @@ function clockfaceMode(){
   function toggle(isVisible){
     toggleVisibility(ui.container, isVisible);
   }
+
+  setupGraduations();
 
   return {
     render,
