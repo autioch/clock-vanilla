@@ -1,5 +1,6 @@
 html {
   font-family: Helvetica;
+  font-size: 20px;
 }
 
 /* Main app */
@@ -35,10 +36,13 @@ html {
   position: relative;
   width: 10em;
   height: 10em;
-  background-color: #def;
+  border: solid .25em #eee;
+  border-radius: 5.25em;
+  z-index: 1;
 }
 
 .clockface-display::before {
+  box-sizing: border-box;
   width: .5em;
   height: .5em;
   border-radius: .25em;
@@ -47,38 +51,42 @@ html {
   position: absolute;
   top: 4.75em;
   left: 4.75em;
+  z-index: 2;
+  border: solid 1px #aaa;
 }
 
 .clockface__hand--hour,
 .clockface__hand--minute,
 .clockface__hand--second {
   position: absolute;
+  box-sizing: border-box;
   transform-origin: 50% 100%;
   background-color: #000;
+  border: solid 1px #aaa;
 }
 
 .clockface__hand--hour {
-  left: 4.85em;
-  width: .3em;
+  left: 4.8em;
+  width: .4em;
   height: 2.5em;
   top: 2.5em;
-  border-radius: .15em;
+  border-radius: .2em;
 }
 
 .clockface__hand--minute {
-  left: 4.9em;
-  width: .2em;
+  left: 4.85em;
+  width: .3em;
   height: 3em;
   top: 2em;
-  border-radius: .1em;
+  border-radius: .15em;
 }
 
 .clockface__hand--second {
-  left: 4.95em;
-  width: .1em;
+  left: 4.9em;
+  width: .2em;
   height: 3.5em;
   top: 1.5em;
-  border-radius: .05em;
+  border-radius: .1em;
 }
 
 .clockface-graduation-hour {
@@ -95,12 +103,12 @@ html {
 }
 
 .clockface-graduation-hour-item {
-   counter-increment: graduation-hour;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   width: 2em;
-   text-align: center;
+  counter-increment: graduation-hour;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2em;
+  text-align: center;
 }
 
 .clockface-graduation-hour-item::before {
