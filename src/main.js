@@ -58,9 +58,9 @@ function digitalMode() {
   }
 
   /* Initial setup. */
-  toggleVisibility(ui.minute, ui.showMinute);
-  toggleVisibility(ui.second, ui.showSecond);
-  toggleVisibility(ui.millisecond, ui.showMillisecond);
+  toggleVisibility(ui.minute, ui.showMinute.checked);
+  toggleVisibility(ui.second, ui.showSecond.checked);
+  toggleVisibility(ui.millisecond, ui.showMillisecond.checked);
   toggleFormat();
   bindEvents();
 
@@ -77,9 +77,18 @@ function clockfaceMode() {
     hour: document.querySelector('.clockface__hand--hour'),
     minute: document.querySelector('.clockface__hand--minute'),
     second: document.querySelector('.clockface__hand--second'),
+    hourGraduation: document.querySelector('.clockface-graduation-hour'),
+    secondGraduation: document.querySelector('.clockface-graduation-second'),
+    secondGraduationOption: document.querySelector('.clockface-options__second-graduation'),
+    hourGraduationOption: document.querySelector('.clockface-options__hour-graduation'),
     graduationHour: document.querySelector('.clockface-graduation-hour'),
     graduationSecond: document.querySelector('.clockface-graduation-second')
   };
+
+  function bindEvents() {
+    ui.secondGraduationOption.addEventListener('change', () => toggleVisibility(ui.secondGraduation, ui.secondGraduationOption.checked));
+    ui.hourGraduationOption.addEventListener('change', () => toggleVisibility(ui.hourGraduation, ui.hourGraduationOption.checked));
+  }
 
   function setupGraduations() {
 
@@ -116,6 +125,9 @@ function clockfaceMode() {
   }
 
   setupGraduations();
+  bindEvents();
+  toggleVisibility(ui.secondGraduation, ui.secondGraduationOption.checked);
+  toggleVisibility(ui.hourGraduation, ui.hourGraduationOption.checked);
 
   return {
     render,
